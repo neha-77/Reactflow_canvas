@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# App Graph Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive ReactFlow-based application graph builder with service node management, real-time inspector updates, and mobile support.
 
-Currently, two official plugins are available:
+Live Demo: https://reactflow-canvas-mq9n.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+App Screenshot: <img width="1918" height="857" alt="image" src="https://github.com/user-attachments/assets/0cbd14d3-8654-4722-ab88-693cec6642c8" />
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Interactive Graph Canvas – ReactFlow-powered node visualization  
+- Real-time Node Inspector – Edit nodes with instant visual feedback  
+- Synced Slider/Input – Bidirectional sync persists to node data  
+- Mobile Responsive – Slide-over drawer for small screens  
+- Mock API – Simulated backend with loading and error states  
+- State Management – Zustand for UI, TanStack Query for data  
+- Professional UI – shadcn/ui components with dark theme  
+- TypeScript Strict – Full type safety throughout  
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- React 18 + TypeScript (strict mode)
+- Vite – Fast build tool
+- ReactFlow – Graph visualization library
+- shadcn/ui – Headless UI components
+- TanStack Query – Data fetching and caching
+- Zustand – Lightweight state management
+- Tailwind CSS – Utility-first styling
+- Lucide React – Icon library
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Installation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Prerequisites
+
+- Node.js 18+ and npm
+- Git for version control
+
+### Setup
+
+git clone https://github.com/YOUR_USERNAME/app-graph-builder.git
+cd app-graph-builder
+npm install
+npm run dev
