@@ -89,11 +89,10 @@ export const ServiceNode: React.FC<ServiceNodeProps> = ({ data, selected }) => {
           min="0"
           max="100"
           value={data.sliderValue}
-          className="w-full h-1 rounded-lg appearance-none cursor-pointer"
+          className="w-full h-1 rounded-lg appearance-none cursor-pointer pointer-events-none"
           style={{
             background: `linear-gradient(to right, #3b82f6 0%, #10b981 ${data.sliderValue / 2}%, #f59e0b ${data.sliderValue}%, #ef4444 100%)`,
           }}
-          readOnly
         />
         <div className="text-right text-xs text-muted-foreground mt-1">
           {(data.sliderValue / 100).toFixed(2)}

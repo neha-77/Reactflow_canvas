@@ -22,9 +22,10 @@ const nodeTypes: NodeTypes = {
 
 interface FlowCanvasProps {
   onNodesChange: (nodes: Node<ServiceNodeData>[]) => void;
+  externalNodes: Node<ServiceNodeData>[]; // NEW: receive nodes from parent
 }
 
-export const FlowCanvas: React.FC<FlowCanvasProps> = ({ onNodesChange: onNodesChangeParent }) => {
+export const FlowCanvas: React.FC<FlowCanvasProps> = ({ onNodesChange: onNodesChangeParent, externalNodes }) => {
   const { selectedAppId, selectedNodeId, setSelectedNodeId } = useAppStore();
   const [nodes, setNodes, onNodesChange] = useNodesState<ServiceNodeData>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -35,6 +36,7 @@ export const FlowCanvas: React.FC<FlowCanvasProps> = ({ onNodesChange: onNodesCh
     enabled: !!selectedAppId,
   });
 
+  // Load initial graph data
   useEffect(() => {
     if (graphData) {
       setNodes(graphData.nodes);
@@ -42,6 +44,29 @@ export const FlowCanvas: React.FC<FlowCanvasProps> = ({ onNodesChange: onNodesCh
     }
   }, [graphData, setNodes, setEdges]);
 
+  // Sync external node updates (from inspector) back to ReactFlow
+  useEffect(() => {
+    if (externalNodes.length > 0) {
+      setNodes((currentNodes) => {
+        return currentNodes.map((node) => {
+          const externalNode = externalNodes.find((n) => n.id === node.id);
+          if (externalNode) {
+            // Merge the updated data while preserving position
+            return {
+              ...node,
+              data: {
+                ...node.data,
+                ...externalNode.data,
+              },
+            };
+          }
+          return node;
+        });
+      });
+    }
+  }, [externalNodes, setNodes]);
+
+  // Notify parent of node changes
   useEffect(() => {
     onNodesChangeParent(nodes);
   }, [nodes, onNodesChangeParent]);

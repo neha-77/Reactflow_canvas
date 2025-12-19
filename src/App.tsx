@@ -35,14 +35,17 @@ const App: React.FC = () => {
         {/* Left Icon Rail */}
         <LeftRail />
         
-        {/* Desktop Layout - Canvas takes full width, Inspector on right when selected */}
+        {/* Desktop Layout */}
         <div className="hidden lg:flex flex-1 overflow-hidden">
-          {/* Main Canvas - Full Width */}
+          {/* Main Canvas */}
           <div className="flex-1">
-            <FlowCanvas onNodesChange={handleNodesChange} />
+            <FlowCanvas 
+              onNodesChange={handleNodesChange} 
+              externalNodes={nodes}
+            />
           </div>
           
-          {/* Node Inspector - RIGHT SIDE (only when node selected) */}
+          {/* Node Inspector */}
           {selectedNode && (
             <div className="w-80 bg-card border-l border-border flex-col flex">
               <NodeInspector node={selectedNode} onUpdateNode={handleUpdateNode} />
@@ -50,12 +53,15 @@ const App: React.FC = () => {
           )}
         </div>
         
-        {/* Mobile Layout - Canvas full width */}
+        {/* Mobile Layout */}
         <div className="flex-1 lg:hidden">
-          <FlowCanvas onNodesChange={handleNodesChange} />
+          <FlowCanvas 
+            onNodesChange={handleNodesChange}
+            externalNodes={nodes}
+          />
         </div>
         
-        {/* Mobile Drawer - Node Inspector only */}
+        {/* Mobile Drawer */}
         {isMobilePanelOpen && selectedNode && (
           <div className="lg:hidden fixed inset-0 z-50">
             <div
