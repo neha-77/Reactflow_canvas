@@ -248,9 +248,4 @@ npm install @tanstack/react-query zustand lucide-react
 
 ---
 
-## 🚀 Deployment
-
-Deployed on Vercel:
-https://reactflow-canvas-mq9n.vercel.app
-
 **Built with using React + TypeScript + Vite**
