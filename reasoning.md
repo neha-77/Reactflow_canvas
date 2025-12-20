@@ -197,6 +197,7 @@ import type { Node, Connection, NodeTypes } from 'reactflow';
 ### Improvements Given More Time
 
 - Add unit tests for state management
+- Keyboard shortcuts (Fit view, toggle panel)
 - Implement undo/redo functionality
 - Multiple node types (database, cache, API)
 - Better error boundaries with retry logic
