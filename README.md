@@ -68,18 +68,6 @@ npm run typecheck  # TypeScript type checking
 
 ---
 
-## Tech Stack
-
-- React 18 + TypeScript (strict mode)
-- Vite
-- ReactFlow (xyflow) - Graph visualization
-- shadcn/ui - UI components
-- TanStack Query - Data fetching
-- Zustand - State management
-- Tailwind CSS
-
----
-
 ## Installation Issues & Solutions
 
 ### Issue 1: Tailwind Init Fails on Windows
